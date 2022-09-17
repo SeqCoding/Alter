@@ -11,8 +11,8 @@ class AnimDef(id: Int) : Definition(id) {
     private lateinit var frameIds: IntArray
     private lateinit var frameLengths: IntArray
     private var priority = -1
-
     private var lengthInCycles = 0
+    private lateinit var skeletalAttributes: BooleanArray
 
     val cycleLength: Int get() = lengthInCycles
 
@@ -66,7 +66,7 @@ class AnimDef(id: Int) : Definition(id) {
             7 -> buf.readUnsignedShort()
             8 -> buf.readUnsignedByte()
             9 -> buf.readUnsignedByte()
-            10 -> priority = buf.readUnsignedByte().toInt()
+            10 -> priority = buf.readUnsignedByte().toInt() // def.priority = stream.readUnsignedByte();
             11 -> buf.readUnsignedByte()
             12 -> {
                 val count = buf.readUnsignedByte()
@@ -81,6 +81,30 @@ class AnimDef(id: Int) : Definition(id) {
                 val count = buf.readUnsignedByte()
                 for (i in 0 until count) {
                     buf.readMedium()
+                }
+            }
+            14 -> {
+                buf.readInt()
+            }
+            15 -> {
+                val count = buf.readUnsignedShort()
+                val sounds = mutableMapOf<Int, Int>()
+                repeat(count) {
+                    val id = buf.readUnsignedShort()
+                    val value = buf.readMedium()
+                    sounds[id] = value
+                }
+            }
+            16 -> {
+                buf.readUnsignedShort()
+                buf.readUnsignedShort()
+            }
+            17 -> {
+                val skeletalAttributes = BooleanArray(256) { false }
+                this.skeletalAttributes = skeletalAttributes
+                val count = buf.readUnsignedByte().toInt()
+                repeat(count) {
+                    skeletalAttributes[buf.readUnsignedByte().toInt()] = true
                 }
             }
         }

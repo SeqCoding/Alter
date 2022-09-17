@@ -135,25 +135,29 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.RebuildLoginMessage
     type: VARIABLE_SHORT
-    opcode: 0
+    opcode: 1
     structure:
       - name: gpi
         write: bytes
       - name: z
-        write: ShortAddLE
+        type: SHORT
+        order: LITTLE
       - name: x
         write: SHORT
+        order: LITTLE
       - name: xteas
         write: BYTES
 
   - message: gg.rsmod.game.message.impl.RebuildNormalMessage
     type: VARIABLE_SHORT
-    opcode: 0
+    opcode: 1
     structure:
       - name: z
-        write: ShortAddLE
+        type: SHORT
+        order: LITTLE
       - name: x
         write: SHORT
+        order: LITTLE
       - name: xteas
         write: BYTES
 
@@ -192,25 +196,27 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.IfOpenTopMessage
     type: FIXED
-    opcode: 49
+    opcode: 41
     structure:
       - name: top
         type: SHORT
         order: LITTLE
+        trans: ADD
 
   - message: gg.rsmod.game.message.impl.IfOpenSubMessage
     type: FIXED
-    opcode: 48
+    opcode: 14
     structure:
       - name: component
         type: SHORT
         trans: ADD
-      - name: type
-        type: BYTE
-        trans: ADD
+        order: LITTLE
       - name: overlay
         type: INT
-        order: MIDDLE
+        order: LITTLE
+      - name: type
+        type: BYTE
+        order: LITTLE
 
   - message: gg.rsmod.game.message.impl.LocAddChangeMessage
     type: FIXED

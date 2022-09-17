@@ -58,7 +58,14 @@ class GameSystem(channel: Channel, val world: World, val client: Client, val ser
         }
     }
 
+    val list = mutableListOf(
+        IfOpenSubMessage::class,
+        IfOpenTopMessage::class,
+        RebuildLoginMessage::class,
+        RebuildNormalMessage::class,
+    )
     fun write(message: Message) {
+        if (!list.contains(message::class)) return
         channel.write(message)
     }
 
