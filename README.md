@@ -1,5 +1,5 @@
 # Alter
-[![revision: 205][rev-badge]][patch] [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.com/invite/sAzCuuwkpN) ![](https://tokei.rs/b1/github/AlterRSPS/Alter)
+[![revision: 208][rev-badge]][patch] [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.com/invite/sAzCuuwkpN) ![](https://tokei.rs/b1/github/AlterRSPS/Alter)
 
 **Alter** is a modified version of [RSMod](https://github.com/Tomm0017/rsmod) a highly flexible user-friendly game server for use with the OSRS client. Implemented in a modular way,
 the framework allows developers to make and create any sort of plugin they wish without having to modify the core game module.
