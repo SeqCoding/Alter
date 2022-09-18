@@ -11,11 +11,11 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.CamResetMessage
     type: FIXED
-    opcode: 69
+    opcode: 101
 
   - message: gg.rsmod.game.message.impl.CamShakeMessage
     type: FIXED
-    opcode: 84
+    opcode: 69
     structure:
       - name: index
         type: BYTE
@@ -28,7 +28,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.MapAnimMessage
     type: FIXED
-    opcode: 66
+    opcode: 74
     structure:
       - name: tile
         type: BYTE
@@ -45,7 +45,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.UpdateRebootTimerMessage
     type: FIXED
-    opcode: 43
+    opcode: 3
     structure:
       - name: cycles
         type: SHORT
@@ -53,11 +53,11 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.TriggerOnDialogAbortMessage
     type: FIXED
-    opcode: 18
+    opcode: 0
 
   - message: gg.rsmod.game.message.impl.SetOpPlayerMessage
     type: VARIABLE_BYTE
-    opcode: 78
+    opcode: 56
     structure:
       - name: left_click
         type: BYTE
@@ -69,7 +69,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.SoundAreaMessage
     type: FIXED
-    opcode: 86
+    opcode: 67
     structure:
       - name: sound
         type: SHORT
@@ -84,7 +84,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.MapProjAnimMessage
     type: FIXED
-    opcode: 102
+    opcode: 8
     structure:
       - name: target_index
         type: SHORT
@@ -121,7 +121,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.IfMoveSubMessage
     type: FIXED
-    opcode: 5
+    opcode: 17
     structure:
       - name: from
         type: INT
@@ -163,7 +163,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.RebuildRegionMessage
     type: VARIABLE_SHORT
-    opcode: 103
+    opcode: 24
     structure:
       - name: force_load
         write: bytesub
@@ -176,7 +176,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.UpdateZonePartialFollowsMessage
     type: FIXED
-    opcode: 21
+    opcode: 16
     structure:
       - name: z
         write: BYTE
@@ -185,7 +185,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.UpdateZonePartialEnclosedMessage
     type: VARIABLE_SHORT
-    opcode: 32
+    opcode: 90
     structure:
       - name: x
         write: ByteSub
@@ -220,7 +220,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.LocAddChangeMessage
     type: FIXED
-    opcode: 83
+    opcode: 30
     structure:
       - name: id
         write: Short
@@ -231,7 +231,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.ObjDelMessage
     type: FIXED
-    opcode: 59
+    opcode: 102
     structure:
       - name: item
         write: shortle
@@ -240,7 +240,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.LocDelMessage
     type: FIXED
-    opcode: 85
+    opcode: 4
     structure:
       - name: tile
         write: ByteNeg
@@ -249,7 +249,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.ObjAddMessage
     type: FIXED
-    opcode: 91
+    opcode: 73
     structure:
       - name: tile
         write: byteadd
@@ -260,7 +260,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.ObjCountMessage
     type: FIXED
-    opcode: 70
+    opcode: 6
     structure:
       - name: tile
         write: byteneg
@@ -273,7 +273,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.VarpSmallMessage
     type: FIXED
-    opcode: 77
+    opcode: 99
     structure:
       - name: value
         write: BYTE
@@ -282,7 +282,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.VarpLargeMessage
     type: FIXED
-    opcode: 34
+    opcode: 48
     structure:
       - name: id
         write: ShortAddLe
@@ -291,7 +291,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.RunClientScriptMessage
     type: VARIABLE_SHORT
-    opcode: 14
+    opcode: 46
     structure:
       - name: types
         write: BYTES
@@ -302,7 +302,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.MessageGameMessage
     type: VARIABLE_BYTE
-    opcode: 36
+    opcode: 50
     structure:
       - name: type
         write: BYTE
@@ -315,11 +315,11 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.LogoutFullMessage
     type: FIXED
-    opcode: 92
+    opcode: 13
 
   - message: gg.rsmod.game.message.impl.UpdateStatMessage # TODO
     type: FIXED
-    opcode: 11
+    opcode: 32
     structure:
       - name: xp
         write: IntLE
@@ -330,7 +330,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.IfSetTextMessage
     type: VARIABLE_SHORT
-    opcode: 23
+    opcode: 2
     structure:
       - name: text
         write: BYTES
@@ -339,28 +339,28 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.OpenUrlMessage
     type: VARIABLE_SHORT
-    opcode: 100
+    opcode: 25
     structure:
       - name: url
         write: BYTES
 
   - message: gg.rsmod.game.message.impl.UpdateRunEnergyMessage
     type: FIXED
-    opcode: 15
+    opcode: 97
     structure:
       - name: energy
         write: BYTE
 
   - message: gg.rsmod.game.message.impl.IfCloseSubMessage
     type: FIXED
-    opcode: 28
+    opcode: 26
     structure:
       - name: hash
         write: INT
 
   - message: gg.rsmod.game.message.impl.IfSetEventsMessage #
     type: FIXED
-    opcode: 87
+    opcode: 40
     structure:
       - name: hash
         write: intLe
@@ -373,7 +373,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.IfSetHideMessage
     type: FIXED
-    opcode: 68
+    opcode: 86
     structure:
       - name: hidden
         write: ByteAdd
@@ -382,7 +382,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.IfSetObjectMessage
     type: FIXED
-    opcode: 90
+    opcode: 103
     structure:
       - name: item
         write: ShortAddLe
@@ -393,7 +393,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.IfSetNpcHeadMessage
     type: FIXED
-    opcode: 50
+    opcode: 38
     structure:
       - name: hash
         write: INT
@@ -402,14 +402,14 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.IfSetPlayerHeadMessage
     type: FIXED
-    opcode: 72
+    opcode: 20
     structure:
       - name: hash
         write: INTLE
 
   - message: gg.rsmod.game.message.impl.IfSetAnimMessage
     type: FIXED
-    opcode: 3
+    opcode: 96
     structure:
       - name: anim
         write: Short
@@ -430,7 +430,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.SetMapFlagMessage
     type: FIXED
-    opcode: 25
+    opcode: 95
     structure:
       - name: x
         write: BYTE
@@ -439,7 +439,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.UpdateInvFullMessage
     type: VARIABLE_SHORT
-    opcode: 52
+    opcode: 70
     structure:
       - name: component_hash
         type: INT
@@ -464,7 +464,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.SynthSoundMessage
     type: FIXED
-    opcode: 33
+    opcode: 55
     structure:
       - name: sound
         write: SHORT
@@ -475,14 +475,14 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.MidiSongMessage
     type: FIXED
-    opcode: 81
+    opcode: 91
     structure:
       - name: id
         write: ShortAdd
 
   - message: gg.rsmod.game.message.impl.MidiJingleMessage
     type: FIXED
-    opcode: 12
+    opcode: 77
     structure:
       - name: id
         write: Short
@@ -491,14 +491,14 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.UpdateRunWeightMessage
     type: FIXED
-    opcode: 6
+    opcode: 79
     structure:
       - name: weight
         write: SHORT
 
   - message: gg.rsmod.game.message.impl.UpdateFriendListMessage
     type: VARIABLE_SHORT
-    opcode: 22
+    opcode: 82
     structure:
       - name: online
         write: BYTE
@@ -515,7 +515,7 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.UpdateIgnoreListMessage
     type: VARIABLE_SHORT
-    opcode: 8
+    opcode: 72
     structure:
       - name: online
         write: BYTE
@@ -526,11 +526,11 @@ server-packets:
 
   - message: gg.rsmod.game.message.impl.FriendListLoadedMessage
     type: VARIABLE_SHORT
-    opcode: 22
+    opcode: 93
 
   - message: gg.rsmod.game.message.impl.MessagePrivateReceiverMessage
     type: VARIABLE_SHORT
-    opcode: 95
+    opcode: 59
     structure:
       - name: target
         write: BYTES
